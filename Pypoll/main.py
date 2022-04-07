@@ -12,7 +12,7 @@ can_votes = {}
 Winning_Candidate = ""
 Winning_Count =0
 can_nm1 = ""
-can_num
+# can_num
 with open(csvpath, encoding='utf-8') as csvfile: 
     csvreader = csv.reader(csvfile, delimiter=",")
     csv_header = next(csvreader)
@@ -20,12 +20,12 @@ with open(csvpath, encoding='utf-8') as csvfile:
     for row in csvreader:
         Total_Votes += 1
         can_n = row[2]
-        # if can_n != can_names:
-        if can_n != can_nm1:
+        if can_n != can_names:
+        # if can_n != can_nm1:
             can_names.append(can_n)
-            can_number +=1
-            # can_votes[can_n] = 0
-            # can_votes[can_n] += 1
+            # can_number +=1
+            can_votes[can_n] = 0
+            can_votes[can_n] += 1
         else:
             can_votes[can_n] += 1
             # Candidate_Votes[Candidate_Name] = 0
@@ -40,8 +40,8 @@ with open(csvpath, encoding='utf-8') as csvfile:
             # if votes > Winning_Count: 
             #     Winning_Count = votes
             #     Winning_Candidate = Candidate_Name
-    # print(can_votes, vote_percent, "%")
-    print(can_votes, votes)
+    print(can_votes, vote_percent, "%")
+    # print(can_votes, votes)
     # , vote_percent, "%")
 
 print(Total_Votes)
